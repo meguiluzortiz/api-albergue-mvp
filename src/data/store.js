@@ -9,7 +9,7 @@ const pets = [
     ageMonths: 24,
     status: 'available',
     sponsorshipMonthlyAmount: 30,
-    photoUrl: 'https://example.com/firulais.jpg',
+    photoUrl: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80',
     createdAt: new Date().toISOString()
   },
   {
@@ -18,9 +18,42 @@ const pets = [
     species: 'cat',
     sex: 'female',
     ageMonths: 12,
-    status: 'sponsored',
+    status: 'available',
     sponsorshipMonthlyAmount: 30,
-    photoUrl: 'https://example.com/luna.jpg',
+    photoUrl: 'https://images.unsplash.com/photo-1511044568932-338cba0ad803?auto=format&fit=crop&w=900&q=80',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: '33333333-3333-3333-3333-333333333333',
+    name: 'Bruno',
+    species: 'dog',
+    sex: 'male',
+    ageMonths: 18,
+    status: 'available',
+    sponsorshipMonthlyAmount: 35,
+    photoUrl: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=900&q=80',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: '44444444-4444-4444-4444-444444444444',
+    name: 'Mía',
+    species: 'cat',
+    sex: 'female',
+    ageMonths: 10,
+    status: 'available',
+    sponsorshipMonthlyAmount: 25,
+    photoUrl: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=900&q=80',
+    createdAt: new Date().toISOString()
+  },
+  {
+    id: '55555555-5555-5555-5555-555555555555',
+    name: 'Coco',
+    species: 'dog',
+    sex: 'male',
+    ageMonths: 30,
+    status: 'available',
+    sponsorshipMonthlyAmount: 40,
+    photoUrl: 'https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=900&q=80',
     createdAt: new Date().toISOString()
   }
 ];

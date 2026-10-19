@@ -16,7 +16,12 @@ function createPreEvaluation(data) {
   return preEvaluation;
 }
 
-function generateWhatsAppLink(preEvaluationId) {
+function listPreEvaluations(status) {
+  if (!status) return preEvaluations;
+  return preEvaluations.filter((item) => item.status === status);
+}
+
+function getPreEvaluationById(preEvaluationId) {
   const preEvaluation = preEvaluations.find((item) => item.id === preEvaluationId);
 
   if (!preEvaluation) {
@@ -26,14 +31,38 @@ function generateWhatsAppLink(preEvaluationId) {
     throw error;
   }
 
+  return preEvaluation;
+}
+
+function reviewPreEvaluation(preEvaluationId, action, note) {
+  const preEvaluation = getPreEvaluationById(preEvaluationId);
+
+  preEvaluation.status = action === 'approve' ? 'approved' : 'rejected';
+  preEvaluation.reviewNote = note || null;
+  preEvaluation.reviewedAt = new Date().toISOString();
+
+  return preEvaluation;
+}
+
+function generateWhatsAppLink(preEvaluationId) {
+  const preEvaluation = getPreEvaluationById(preEvaluationId);
+
   const pet = getPetById(preEvaluation.petId);
   const text = encodeURIComponent(`Hola, quiero adoptar a ${pet.name}`);
   const whatsappUrl = `https://wa.me/51912345678?text=${text}`;
 
   return {
     preEvaluationId: preEvaluation.id,
-    whatsappUrl
+    whatsappUrl,
+    whatsappLink: whatsappUrl,
+    link: whatsappUrl
   };
 }
 
-module.exports = { createPreEvaluation, generateWhatsAppLink };
+module.exports = {
+  createPreEvaluation,
+  listPreEvaluations,
+  getPreEvaluationById,
+  reviewPreEvaluation,
+  generateWhatsAppLink
+};

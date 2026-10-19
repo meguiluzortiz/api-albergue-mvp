@@ -6,6 +6,9 @@ const {
   listSponsorships,
   getSponsorshipById,
   reviewSponsorship,
+  listPreEvaluations,
+  getPreEvaluationById,
+  reviewPreEvaluation,
   createPet,
   updatePet
 } = require('../controllers/adminController');
@@ -41,6 +44,9 @@ router.use(requireAuth);
 router.get('/sponsorships', listSponsorships);
 router.get('/sponsorships/:sponsorshipId', getSponsorshipById);
 router.patch('/sponsorships/:sponsorshipId/review', validate(reviewSchema), reviewSponsorship);
+router.get('/pre-evaluations', listPreEvaluations);
+router.get('/pre-evaluations/:preEvaluationId', getPreEvaluationById);
+router.patch('/pre-evaluations/:preEvaluationId/review', validate(reviewSchema), reviewPreEvaluation);
 router.post('/pets', validate(petCreateSchema), createPet);
 router.patch('/pets/:petId', validate(petUpdateSchema), updatePet);
 
